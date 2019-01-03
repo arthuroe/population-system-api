@@ -42,8 +42,8 @@ What things you need to install the software and how to install them
 ## Start the API.
 
 To start the API
-- Run tsc, to transpile TypeScript code to javaScript.
-- Run yarn start, to start the API
+- Run `tsc`, to transpile TypeScript code to javaScript.
+- Run `yarn start`, to start the API
 
 
 # API Routes
