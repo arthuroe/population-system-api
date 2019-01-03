@@ -1,0 +1,36 @@
+{
+  "name": "population-system-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kisakyegordon/population-system-api.git",
+  "author": "kisakyegordon <gordon56692@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./build/server.js",
+    "test": "./node_modules/.bin/mocha --reporter spec ❱ src/test/Location.spec.js --coverage"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.4.1",
+    "morgan": "^1.9.1",
+    "sinon": "^7.2.2",
+    "sinon-mongoose": "^2.2.1",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/cookie-parser": "^1.4.1",
+    "@types/cors": "^2.8.4",
+    "@types/express": "^4.16.0",
+    "@types/helmet": "^0.0.42",
+    "@types/mongoose": "^5.3.5",
+    "@types/morgan": "^1.7.35",
+    "nodemon": "^1.18.9"
+  }
+}

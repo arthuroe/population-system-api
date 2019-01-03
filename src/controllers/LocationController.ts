@@ -31,50 +31,50 @@ export function getAllLocations(req, res, next){
 
 // add a district
 export function createDistrict(req, res, next){
-    const id = req.params.id
+    const id = req.params.location_id
     const  district = req.body;
 
     Location.findOneAndUpdate(id, { $push: {district: district}}, (err, district) => {
         if (err){
             res.status(500).json({err});
         }
-        res.status(201).json({ "status": "Success", district })
+        res.status(201).json({ "status": "Successfully Added a District" })
     })
 }
 
 // update location
 export function updateLocation(req, res, next){
-    const id  = req.params.id;
+    const id  = req.params.location_id;
     const {location_name, male, female} = req.body;
 
     Location.findByIdAndUpdate(id, {location_name, male, female}, (err, location) => {
         if (err){
             res.status(500).json({err});
         }
-        res.status(200).json({ "status": "Success", location })
+        res.status(200).json({ "status": "Successfully Updated Location Data" })
     })
 }
 
 // delete location
 export function deleteLocation(req, res, next){
-    const id  = req.params.id;
+    const id  = req.params.location_id;
 
     Location.findByIdAndRemove(id, (err, location) => {
         if (err){
             res.status(500).json({err});
         }
-        res.status(200).json({ "status": "Success", location })
+        res.status(200).json({ "status": "Successfully Deleted Location" })
     })
 }
 
 // update district
 export function updateDistrict(req, res, next){
-    const id  = req.params.id;
+    const id  = req.params.district_id;
 
     Location.update({"district._id":id}, { $set: { "district.$": req.body } }, (err, district) => {
         if (err){
             res.status(500).json({err});
         }
-        res.status(200).json({ district })
+        res.status(200).json({ "status": "Successfully Updated District Data" })
     })
 }

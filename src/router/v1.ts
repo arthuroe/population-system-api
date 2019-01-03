@@ -16,16 +16,16 @@ export default (app) => {
     locationRoutes.get('/', getAllLocations);
 
     // add a district
-    locationRoutes.put('/district/:id', createDistrict);
+    locationRoutes.put('/district/:location_id', createDistrict);
 
     // update location
-    locationRoutes.put('/:id', updateLocation);
+    locationRoutes.put('/:location_id', updateLocation);
 
     // delete location
-    locationRoutes.delete('/:id', deleteLocation);
+    locationRoutes.delete('/:location_id', deleteLocation);
 
     // update district
-    locationRoutes.put('/district/update/:id', updateDistrict);
+    locationRoutes.put('/district/update/:district_id', updateDistrict);
 
     app.use('/api/v1', apiRoutes);
 }
