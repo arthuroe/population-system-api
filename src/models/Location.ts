@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const districtSchema = new Schema({
-    district_name: { type: String,  },
-    male: Number,
-    female: Number
+    district_name: { type: String, required: true },
+    male: { type: Number, default: 0},
+    female: { type: Number, default: 0}
 },
     {
         toObject: {
@@ -21,9 +21,9 @@ districtSchema.virtual('total').get(function() {
 });
 
 const locationSchema = new Schema({
-    location_name: String,
-    male: Number,
-    female: Number,
+    location_name:  { type: String, required: true },
+    male: { type: Number, default: 0},
+    female: { type: Number, default: 0},
     district: [districtSchema]
 },
     {
