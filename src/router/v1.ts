@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { createLocation, getAllLocations, createDistrict, updateLocation, updateDistrict } from '../controllers/LocationController'
+import { createLocation, getAllLocations, createDistrict, updateLocation, deleteLocation, updateDistrict } from '../controllers/LocationController';
 
 
 export default (app) => {
@@ -8,6 +8,7 @@ export default (app) => {
 
     apiRoutes.use('/location', locationRoutes);
 
+
     // create a location
     locationRoutes.post('/', createLocation);
 
@@ -15,13 +16,16 @@ export default (app) => {
     locationRoutes.get('/', getAllLocations);
 
     // add a district
-    locationRoutes.post('/district/:id', createDistrict);
+    locationRoutes.put('/district/:id', createDistrict);
 
     // update location
     locationRoutes.put('/:id', updateLocation);
 
+    // delete location
+    locationRoutes.delete('/:id', deleteLocation);
+
     // update district
-    locationRoutes.put('/district/:id', updateDistrict);
+    locationRoutes.put('/district/update/:id', updateDistrict);
 
     app.use('/api/v1', apiRoutes);
 }

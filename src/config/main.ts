@@ -8,7 +8,7 @@ const config = {
 
     // test
     test_env: 'test',
-    test_db: 'population-test',
+    test_db: 'mongodb://localhost/population-test',
     test_port: 3001
 }
 

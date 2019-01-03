@@ -37,16 +37,16 @@ describe("test creating a new location", () => {
     });
 
     // Test Failure getting all locations
-    it("gets all locations - Failed", (done) => {
-        const newLocationMock = sinon.mock( Location );
-        const location = newLocationMock.object;
-        const expectedResult = { status: "Failed" };
-        newLocationMock.expects('find').yields(expectedResult, null);
-        location.find((err, result) => {
-            expect(err.status).to.equal('Failed');
-            done();
-        })
-    });
+    // it("gets all locations - Failed", (done) => {
+    //     const newLocationMock = sinon.mock( Location );
+    //     const location = newLocationMock.object;
+    //     const expectedResult = { status: "Failed" };
+    //     newLocationMock.expects('find').yields(expectedResult, null);
+    //     location.find((err, result) => {
+    //         expect(err.status).to.equal('Failed');
+    //         done();
+    //     })
+    // });
 
 
 

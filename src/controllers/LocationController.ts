@@ -34,7 +34,7 @@ export function createDistrict(req, res, next){
     const id = req.params.id
     const  district = req.body;
 
-    Location.update(id, { $push: {district: district}}, (err, district) => {
+    Location.findOneAndUpdate(id, { $push: {district: district}}, (err, district) => {
         if (err){
             res.status(500).json({err});
         }
@@ -47,23 +47,34 @@ export function updateLocation(req, res, next){
     const id  = req.params.id;
     const {location_name, male, female} = req.body;
 
-    Location.findIdAndUpdate(id, {location_name, male, female}, (err, location) => {
-    if (err){
-        res.status(500).json({err});
-    }
-        res.status(200).json({ location })
+    Location.findByIdAndUpdate(id, {location_name, male, female}, (err, location) => {
+        if (err){
+            res.status(500).json({err});
+        }
+        res.status(200).json({ "status": "Success", location })
+    })
+}
+
+// delete location
+export function deleteLocation(req, res, next){
+    const id  = req.params.id;
+
+    Location.findByIdAndRemove(id, (err, location) => {
+        if (err){
+            res.status(500).json({err});
+        }
+        res.status(200).json({ "status": "Success", location })
     })
 }
 
 // update district
 export function updateDistrict(req, res, next){
     const id  = req.params.id;
-    const district_name = req.params.name;
 
-    Location.findIdAndUpdate({'district.district_name':district_name}, req.body, (err, district) => {
-    if (err){
-        res.status(500).json({err});
-    }
+    Location.update({"district._id":id}, { $set: { "district.$": req.body } }, (err, district) => {
+        if (err){
+            res.status(500).json({err});
+        }
         res.status(200).json({ district })
     })
 }
